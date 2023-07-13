@@ -9,6 +9,9 @@ import Foundation
 
 class LoginViewModel {
     
+    private var minPasswordLength = 7
+    private var maxPasswordLength = 16
+    
     func validateEmailAndPassword(emailAddress: String?, password: String?) -> Bool {
         guard let email = emailAddress else { return false }
         guard let pass = password else { return false }
@@ -20,7 +23,7 @@ class LoginViewModel {
             isValidEmail = true
         }
         
-        if pass.count > 7 && pass.count < 16 {
+        if pass.count > minPasswordLength && pass.count < maxPasswordLength {
             isValidPassword = true
         }
         
